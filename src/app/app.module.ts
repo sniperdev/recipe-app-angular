@@ -8,6 +8,8 @@ import { ToolbarComponent } from './shared/components/toolbar/toolbar.component'
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { HomeComponent } from './pages/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatCardModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

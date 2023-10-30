@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="container">
+  <mat-card>
+    <table mat-table [dataSource]="recipeList$">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.id}} </td>
+    </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nazwa przepisu</th>
+        <td mat-cell *matCellDef="let recipe"> {{recipe.name}} </td>
+    </ng-container>
+      <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Opis</th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.description.slice(0,50)}}... </td>
+    </ng-container>
+      <ng-container matColumnDef="preparationTime">
+      <th mat-header-cell *matHeaderCellDef>Czas przygotowania</th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.preparationTime}} </td>
+    </ng-container>
+      <ng-container matColumnDef="ingredients">
+      <th mat-header-cell *matHeaderCellDef>Numer</th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.ingredients}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+</div>
