@@ -36,8 +36,8 @@ export class HomeComponent implements OnInit {
       data: {
         mode: DialogMode.add,
       },
-      width: '50vw',
-      height: '50vh',
+      width: '60vw',
+      height: '70vh',
     });
   }
 
@@ -47,8 +47,8 @@ export class HomeComponent implements OnInit {
         mode: DialogMode.edit,
         value: recipe,
       } as DialogRecipeData,
-      width: '50vw',
-      height: '50vh',
+      width: '60vw',
+      height: '70vh',
     });
   }
 
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
   protected openRecipe(recipe: Recipe): void {
     this.dialog.open(ShowRecipeComponent, {
       data: recipe,
-      width: '50vw',
+      width: '60vw',
     });
   }
 }

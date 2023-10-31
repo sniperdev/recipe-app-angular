@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Recipe } from '../utils/interfaces/recipe.interface';
 import { HttpClient } from '@angular/common/http';
-import { apiUrl } from '../utils/apiUrl';
+import { apiUrl } from '../utils/api-url';
 
 @Injectable({
   providedIn: 'root',
