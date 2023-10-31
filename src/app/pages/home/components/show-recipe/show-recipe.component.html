@@ -1,9 +1,0 @@
-<div class="recipe-description-card">
-  <h1>{{data.name}}</h1>
-  <p>Preparation time: {{data.preparationTime}} min</p>
-  <h4>{{data.description}}</h4>
-  <p>Ingredients</p>
-  <ul>
-    <li *ngFor="let ingredient of data.ingredients">{{ingredient.name}}({{ingredient.quantity}})</li>
-  </ul>
-</div>
