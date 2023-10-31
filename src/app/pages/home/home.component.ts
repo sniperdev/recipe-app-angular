@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from '../../shared/services/recipes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ShowRecipeComponent } from './components/show-recipe/show-recipe.component';
+import { Recipe } from '../../shared/utils/interfaces/recipe.interface';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +19,19 @@ export class HomeComponent implements OnInit {
     'options',
   ];
 
-  constructor(private recipeService: RecipesService) {}
+  constructor(
+    private recipeService: RecipesService,
+    private dialog: MatDialog,
+  ) {}
 
   public ngOnInit(): void {
     this.recipeService.getRecipeList();
+  }
+
+  protected openRecipe(recipe: Recipe): void {
+    this.dialog.open(ShowRecipeComponent, {
+      data: recipe,
+      width: '50vw',
+    });
   }
 }
