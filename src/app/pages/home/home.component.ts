@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
     this.recipeService.getRecipeList();
   }
 
+  protected deleteClient(id: string) {
+    this.recipeService.deleteRecipe(id);
+  }
+
   protected openRecipe(recipe: Recipe): void {
     this.dialog.open(ShowRecipeComponent, {
       data: recipe,
