@@ -33,9 +33,9 @@ export class RecipesService {
       });
   }
 
-  public editRecipe(id: string, client: Recipe): void {
+  public editRecipe(id: string, recipe: Recipe): void {
     this.http
-      .put<Recipe>(`http://localhost:8080/api/recipes/update/${id}`, client)
+      .put<Recipe>(`http://localhost:8080/api/recipes/update/${id}`, recipe)
       .subscribe(() => this.getRecipeList());
   }
 
