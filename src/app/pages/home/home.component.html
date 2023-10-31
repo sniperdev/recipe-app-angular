@@ -1,5 +1,5 @@
 <div class="container">
-  <button mat-raised-button color="primary">Add recipe</button>
+  <button mat-raised-button color="primary" (click)="addRecipe()">Add recipe</button>
   <mat-card>
     <table mat-table [dataSource]="recipeList$">
     <ng-container matColumnDef="id">
@@ -27,7 +27,7 @@
         <button mat-icon-button>
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn" (click)="deleteClient(recipe.id)">
+        <button mat-icon-button color="warn" (click)="deleteRecipe(recipe.id)">
           <mat-icon>remove_circle_outline</mat-icon>
         </button>
       </td>

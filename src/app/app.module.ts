@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ShowRecipeComponent } from './pages/home/components/show-recipe/show-recipe.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddEditRecipeComponent } from './pages/home/components/add-edit-recipe/add-edit-recipe.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AddEditRecipeComponent } from './pages/home/components/add-edit-recipe/
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
