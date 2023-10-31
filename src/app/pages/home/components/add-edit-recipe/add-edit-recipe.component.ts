@@ -47,6 +47,10 @@ export class AddEditRecipeComponent implements OnInit {
     });
   }
 
+  protected removeIngredient(index: number): void {
+    this.ingredients.removeAt(index);
+  }
+
   protected addIngredient(): void {
     this.ingredients.push(
       this.fb.group({
