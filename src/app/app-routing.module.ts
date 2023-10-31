@@ -6,7 +6,8 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: AppRoutingEnum.home,
-    component: HomeComponent,
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
 ];
 
