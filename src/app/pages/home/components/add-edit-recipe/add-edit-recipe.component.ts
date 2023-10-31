@@ -46,4 +46,13 @@ export class AddEditRecipeComponent implements OnInit {
       ),
     });
   }
+
+  protected addIngredient(): void {
+    this.ingredients.push(
+      this.fb.group({
+        name: ['', Validators.required],
+        quantity: ['', Validators.required],
+      }),
+    );
+  }
 }
