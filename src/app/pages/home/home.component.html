@@ -24,7 +24,7 @@
         <button mat-icon-button color="primary" (click)="openRecipe(recipe)">
           <mat-icon>open_in_new</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="editRecipe(recipe)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button color="warn" (click)="deleteRecipe(recipe.id)">

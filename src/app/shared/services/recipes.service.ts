@@ -25,6 +25,20 @@ export class RecipesService {
       });
   }
 
+  public addRecipe(recipe: Recipe): void {
+    this.http
+      .post<Recipe>('http://localhost:8080/api/recipes/add', recipe)
+      .subscribe(() => {
+        this.getRecipeList();
+      });
+  }
+
+  public editRecipe(id: string, client: Recipe): void {
+    this.http
+      .put<Recipe>(`http://localhost:8080/api/recipes/update/${id}`, client)
+      .subscribe(() => this.getRecipeList());
+  }
+
   public deleteRecipe(id: string): void {
     this.http
       .delete(`http://localhost:8080/api/recipes/delete/${id}`)

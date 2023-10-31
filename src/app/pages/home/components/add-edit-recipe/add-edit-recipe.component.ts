@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RecipesService } from '../../../../shared/services/recipes.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { DialogRecipeData } from '../../../../shared/utils/enums/DialogRecipeData';
+import { DialogMode } from '../../../../shared/utils/enums/DialogMode';
 
 @Component({
   selector: 'app-add-edit-recipe',
@@ -13,10 +17,32 @@ export class AddEditRecipeComponent implements OnInit {
     return this.recipeForm.get('ingredients') as FormArray;
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private recipesService: RecipesService,
+    private dialogRef: MatDialogRef<AddEditRecipeComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: DialogRecipeData,
+  ) {}
 
   ngOnInit() {
     this.createForm();
+
+    if (DialogMode.edit === this.data.mode) {
+      this.recipeForm.patchValue(this.data.value);
+    }
+  }
+
+  protected onSubmit(): void {
+    if (DialogMode.edit === this.data.mode) {
+      this.recipesService.editRecipe(
+        this.data.value.id.toString(),
+        this.recipeForm.value,
+      );
+    } else {
+      this.recipesService.addRecipe(this.recipeForm.value);
+    }
+
+    this.dialogRef.close();
   }
 
   private createForm(): void {

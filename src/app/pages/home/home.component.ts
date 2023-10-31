@@ -5,6 +5,7 @@ import { ShowRecipeComponent } from './components/show-recipe/show-recipe.compon
 import { Recipe } from '../../shared/utils/interfaces/recipe.interface';
 import { AddEditRecipeComponent } from './components/add-edit-recipe/add-edit-recipe.component';
 import { DialogMode } from '../../shared/utils/enums/DialogMode';
+import { DialogRecipeData } from '../../shared/utils/enums/DialogRecipeData';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
   public ngOnInit(): void {
     this.recipeService.getRecipeList();
   }
+
   protected addRecipe() {
     this.dialog.open(AddEditRecipeComponent, {
       data: {
@@ -39,7 +41,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  protected deleteRecipe(id: string) {
+  protected editRecipe(recipe: Recipe): void {
+    this.dialog.open(AddEditRecipeComponent, {
+      data: {
+        mode: DialogMode.edit,
+        value: recipe,
+      } as DialogRecipeData,
+      width: '50vw',
+      height: '50vh',
+    });
+  }
+
+  protected deleteRecipe(id: string): void {
     this.recipeService.deleteRecipe(id);
   }
 
