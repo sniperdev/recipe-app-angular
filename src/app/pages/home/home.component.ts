@@ -8,7 +8,13 @@ import { RecipesService } from '../../shared/services/recipes.service';
 })
 export class HomeComponent implements OnInit {
   protected recipeList$ = this.recipeService.recipeList$;
-  displayedColumns: string[] = ['id', 'name', 'description', 'preparationTime'];
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'description',
+    'preparationTime',
+    'options',
+  ];
 
   constructor(private recipeService: RecipesService) {}
 
