@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(
-    private recipeService: RecipesService,
+    protected recipeService: RecipesService,
     private dialog: MatDialog,
   ) {}
 

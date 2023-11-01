@@ -16,10 +16,14 @@ export class RecipesService {
     return this.recipeList.asObservable();
   }
 
+  public loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient) {}
 
   public getRecipeList(): void {
+    this.loading.next(true);
     this.http.get<Recipe[]>(apiUrl).subscribe((recipes) => {
+      this.loading.next(false);
       this.recipeList.next(recipes);
     });
   }

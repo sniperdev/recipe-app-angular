@@ -12,19 +12,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ShowRecipeComponent } from './components/show-recipe/show-recipe.component';
 import { AddEditRecipeComponent } from './components/add-edit-recipe/add-edit-recipe.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [HomeComponent, ShowRecipeComponent, AddEditRecipeComponent],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    MatCardModule,
-    MatTableModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
-    ReactiveFormsModule,
-    MatInputModule,
-  ],
+	imports: [
+		CommonModule,
+		HomeRoutingModule,
+		MatCardModule,
+		MatTableModule,
+		MatIconModule,
+		MatButtonModule,
+		MatDialogModule,
+		ReactiveFormsModule,
+		MatInputModule,
+		MatProgressSpinnerModule,
+	],
 })
 export class HomeModule {}
